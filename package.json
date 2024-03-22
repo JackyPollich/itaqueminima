@@ -1,0 +1,85 @@
+{
+  "name": "itaqueminima",
+  "version": "1.0.0",
+  "description": "Checks the ECMAScript version of .js glob against a specified version of ECMAScript with a shell command",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "bin": {
+    "es-check": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JackyPollich/itaqueminima.git"
+  },
+  "author": "RosendoRosenbaum",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JackyPollich/itaqueminima.git/issues"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/prompt": "^11.0.0",
+    "@heartly/eslint-config": "^0.0.2",
+    "@heartly/prettier-config": "^0.0.1",
+    "assert": "^2.0.0",
+    "codecov": "^3.0.0",
+    "commitizen": "^4.2.2",
+    "conventional-changelog-cli": "^2.0.11",
+    "eslint": "^6.6.0",
+    "husky": "^4.3.7",
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "acorn": "^6.4.1",
+    "caporal": "1.4.0",
+    "glob": "^7.1.2"
+  },
+  "engines": {
+    "node": ">= 4"
+  },
+  "keywords": [
+    "check for es6",
+    "nobis",
+    "es",
+    "rerum",
+    "ullam",
+    "es version",
+    "ecmascript",
+    "ecmascript check",
+    "harum",
+    "ea",
+    "perferendis",
+    "js version",
+    "js version check",
+    "earum",
+    "test js version",
+    "test ecmascript version"
+  ],
+  "prettier": "@heartly/eslint-config/dist/prettier",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "header-max-length": [
+        2,
+        "always",
+        120
+      ]
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "post-checkout": "if [[ $HUSKY_GIT_PARAMS =~ 1$ ]]; then yarn; fi",
+      "post-merge": "yarn",
+      "post-rewrite": "yarn",
+      "pre-commit": "yarn test && yarn lint"
+    }
+  }
+}
